@@ -2,25 +2,29 @@ spring:
   application:
     name: @project.artifactId@
   kafka:
-#    consumer:
-#      bootstrap-servers: XYZ:9092
-#      topic: topic.one
-#      client-id: @project.artifactId@
-#      group-id: @project.artifactId@
-#      auto-offset-reset: none
-#      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
-#      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
-#      enable-auto-commit: false
-#      properties:
-#        security.protocol: SASL_SSL
-#        sasl.mechanism: PLAIN
-#        sasl.jaas.config: org.apache.kafka.common.security.plain.PlainLoginModule required username="xxxxxxxxxx" password="xxxxxxxxx";
     consumer:
       bootstrap-servers: localhost:9092
       topic: test.topic
       client-id: @project.artifactId@
-      group-id: group.three
+      group-id: group.one
       auto-offset-reset: earliest
       key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
       value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
       enable-auto-commit: false
+      properties:
+        enable.auto.commit: false
+        isolation.level: read_committed
+        security.protocol: SASL_SSL
+        sasl.mechanism: PLAIN
+        sasl.jaas.config: org.apache.kafka.common.security.plain.PlainLoginModule required username="xxxxxxxx" password="xxxxxxxx";
+    listener:
+      ack-mode: manual
+#    consumer:
+#      bootstrap-servers: localhost:9092
+#      topic: test.topic
+#      client-id: @project.artifactId@
+#      group-id: group.three
+#      auto-offset-reset: earliest
+#      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+#      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+#      enable-auto-commit: false

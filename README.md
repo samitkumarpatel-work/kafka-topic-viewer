@@ -1,5 +1,6 @@
 
-[Reference Docs](https://github.com/spring-projects/spring-kafka/tree/main/samples)
+- [Springboot Kafka Example](https://github.com/spring-projects/spring-kafka/blob/main/samples/README.adoc)
+- [Reference Docs](https://github.com/spring-projects/spring-kafka/tree/main/samples)
 
 ### Producer
 ```shell
